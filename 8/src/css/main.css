@@ -17,3 +17,9 @@ html, body{
     border-color: bisque;
     box-shadow: 5px 5px 10px #222;
 }
+
+.box .item.item-active::after{
+    content: attr(data-text);
+    margin-left: 10px;
+    font-size: 12px;
+}

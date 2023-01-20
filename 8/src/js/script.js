@@ -9,6 +9,8 @@ window.addEventListener('load', function(){
 
 function changeState() {
 	this.classList.toggle('item-active');
+	let color = this.classList.contains('item-active') ? this.dataset.color : 'inherit';
+	this.style.color = color;
 }
 
 
