@@ -4,9 +4,24 @@ window.addEventListener('load', function(){
 	const input2 = document.querySelector('.num2');
 	const btnEquals = document.querySelector('.equals');
 	const resultDiv = document.querySelector('.result');
+	const operands = document.querySelector('.operands');
 
-	btnEquals.addEventListener('click', function(){
-		resultDiv.innerHTML = (parseInt(input1.value) + parseInt(input2.value));
+	btnEquals.addEventListener('click', function(){		
+		switch (operands.value) {
+			case '+':
+				resultDiv.innerHTML = (parseInt(input1.value) + parseInt(input2.value));
+				break;
+			case '-':
+				resultDiv.innerHTML = (parseInt(input1.value) - parseInt(input2.value));
+				break;
+			case '*':
+				resultDiv.innerHTML = (parseInt(input1.value) * parseInt(input2.value));
+				break;
+			default:
+				resultDiv.innerHTML = (parseInt(input1.value) / parseInt(input2.value));
+				break;
+		}
+		
 	});
 		
 });
