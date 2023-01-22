@@ -7,6 +7,8 @@ window.addEventListener('load', function(){
 	const operands = document.querySelector('.operands');
 
 	btnEquals.addEventListener('click', function(){		
+		this.classList.toggle('item-equals');
+		
 		switch (operands.value) {
 			case '+':
 				resultDiv.innerHTML = (parseInt(input1.value) + parseInt(input2.value));
