@@ -4,5 +4,10 @@ html, body{
 }
 
 .calculator{
-    margin: 20px;
+    margin: 30px;
+}
+
+.equals:disabled{
+    cursor: not-allowed;
+    color: #A44234;
 }

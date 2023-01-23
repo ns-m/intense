@@ -4,14 +4,13 @@ window.addEventListener('load', function(){
 	const input2 = document.querySelector('.num2');
 	const btnEquals = document.querySelector('.equals');
 	const resultDiv = document.querySelector('.result');
-	const operands = document.querySelector('.operands');
+	const operands = document.querySelector('.operands');	
 
 	btnEquals.addEventListener('click', function(){		
-		this.classList.toggle('item-equals');
 		
 		switch (operands.value) {
 			case '+':
-				resultDiv.innerHTML = (parseInt(input1.value) + parseInt(input2.value));
+				resultDiv.innerHTML = (parseInt((input1.value).match(/\d+/)) + parseInt((input2.value).match(/\d+/)));
 				break;
 			case '-':
 				resultDiv.innerHTML = (parseInt(input1.value) - parseInt(input2.value));
@@ -23,7 +22,17 @@ window.addEventListener('load', function(){
 				resultDiv.innerHTML = (parseInt(input1.value) / parseInt(input2.value));
 				break;
 		}
+
+		this.setAttribute('disabled', '');
 		
 	});
+
+	function changeExample() {
+		btnEquals.removeAttribute('disabled');
+	}
+
+	input1.addEventListener("click", changeExample);
+	input2.addEventListener("click", changeExample);
+	operands.addEventListener("click", changeExample);	
 		
 });
