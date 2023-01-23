@@ -33,12 +33,14 @@ window.addEventListener('load', function(){
 	});	
 
 	function clearNumber() {
-		this.value = this.value.replace(/[^0-9]/g, '');
+		//this.value = this.value.replace(/[^0-9]/g, '');
+		this.value = this.value.match(/-?[0-9]+\.?[0-9]*/g)[0];
 	}
 
 	function changeExample() {
 		btnEquals.disabled = (
-			[input1.dataset.last, input2.dataset.last, operands.dataset.last] === [input1.value, input2.value, operands.value]
+			[input1.dataset.last, input2.dataset.last, operands.dataset.last] === 
+			[input1.value, input2.value, operands.value]
 		);
 	}
 
