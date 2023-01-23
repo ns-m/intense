@@ -4,7 +4,8 @@ window.addEventListener('load', function(){
 	const input2 = document.querySelector('.num2');
 	const btnEquals = document.querySelector('.equals');
 	const resultDiv = document.querySelector('.result');
-	const operands = document.querySelector('.operands');	
+	const operands = document.querySelector('.operands');
+	const selectors = [input1, input2, operands];	
 	
 
 	btnEquals.addEventListener('click', function(){		
@@ -27,7 +28,7 @@ window.addEventListener('load', function(){
 				break;
 		}
 
-		[input1, input2, operands].forEach(el => el.dataset.last = el.value);
+		selectors.forEach(el => el.dataset.last = el.value);
 		this.disabled = true;
 		
 	});	
@@ -38,15 +39,12 @@ window.addEventListener('load', function(){
 	}
 
 	function changeExample() {
-		btnEquals.disabled = (
-			[input1.dataset.last, input2.dataset.last, operands.dataset.last] === 
-			[input1.value, input2.value, operands.value]
-		);
+		btnEquals.disabled = selectors.every(el => el.dataset.last === el.value)
 	}
 
-	[input1, input2].forEach(el => el.addEventListener('input', clearNumber));
+	selectors.slice(0,2).forEach(el => el.addEventListener('input', clearNumber));
 
-	[input1, input2, operands].forEach(el => el.addEventListener('input', changeExample));
+	selectors.forEach(el => el.addEventListener('input', changeExample));
 	
 		
 });
