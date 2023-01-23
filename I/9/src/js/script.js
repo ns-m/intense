@@ -5,34 +5,46 @@ window.addEventListener('load', function(){
 	const btnEquals = document.querySelector('.equals');
 	const resultDiv = document.querySelector('.result');
 	const operands = document.querySelector('.operands');	
+	
 
 	btnEquals.addEventListener('click', function(){		
+
+		let resultNum1 = parseInt(input1.value);
+		let resultNum2 = parseInt(input2.value);
 		
 		switch (operands.value) {
 			case '+':
-				resultDiv.innerHTML = (parseInt((input1.value).match(/\d+/)) + parseInt((input2.value).match(/\d+/)));
+				resultDiv.innerHTML = (resultNum1 + resultNum2);
 				break;
 			case '-':
-				resultDiv.innerHTML = (parseInt(input1.value) - parseInt(input2.value));
+				resultDiv.innerHTML = (resultNum1 - resultNum2);
 				break;
 			case '*':
-				resultDiv.innerHTML = (parseInt(input1.value) * parseInt(input2.value));
+				resultDiv.innerHTML = (resultNum1 * resultNum2);
 				break;
 			default:
-				resultDiv.innerHTML = (parseInt(input1.value) / parseInt(input2.value));
+				resultDiv.innerHTML = (resultNum1 / resultNum2);
 				break;
 		}
 
-		this.setAttribute('disabled', '');
+		[input1, input2, operands].forEach(el => el.dataset.last = el.value);
+		this.disabled = true;
 		
-	});
+	});	
 
-	function changeExample() {
-		btnEquals.removeAttribute('disabled');
+	function clearNumber() {
+		this.value = this.value.replace(/[^0-9]/g, '');
 	}
 
-	input1.addEventListener("click", changeExample);
-	input2.addEventListener("click", changeExample);
-	operands.addEventListener("click", changeExample);	
+	function changeExample() {
+		btnEquals.disabled = (
+			[input1.dataset.last, input2.dataset.last, operands.dataset.last] === [input1.value, input2.value, operands.value]
+		);
+	}
+
+	[input1, input2].forEach(el => el.addEventListener('input', clearNumber));
+
+	[input1, input2, operands].forEach(el => el.addEventListener('input', changeExample));
+	
 		
 });
