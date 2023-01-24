@@ -1,0 +1,13 @@
+html, body{
+    margin: 0;
+}
+
+.gallery img{
+    width: 400px;
+    border: 10px solid transparent;
+}
+
+.gallery img.active{
+    width: 400px;
+    border: 10px solid rgb(254, 80, 180);
+}
