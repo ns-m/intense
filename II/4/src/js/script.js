@@ -17,10 +17,12 @@ window.addEventListener('load', function(){
 	});
 
 	btnAddItem.addEventListener('click', function(){
+
 		let div = document.createElement('div');
 		div.classList.add('item');
 		div.innerHTML = 'Text ' + (box.children.length + 1);
 		box.appendChild(div);
+		
 	});
 	
 });

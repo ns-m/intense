@@ -5,8 +5,7 @@ window.addEventListener('load', function(){
 	let box = document.querySelector('.box');
 
 	for (let index = 0; index < items.length; index++) {
-		items[index].addEventListener('click', changeColor);
-		
+		items[index].addEventListener('click', changeColor);		
 	}
 
 	btnAddItem.addEventListener('click', function(){
