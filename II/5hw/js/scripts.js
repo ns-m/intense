@@ -6,34 +6,40 @@ window.addEventListener('load', function(){
     
     mainForm.addEventListener('submit', function(e){        
         
-        let hasError = false;
-        
+        let hasError = false;        
 
         formElements.forEach(function(item){
             if(item.value === ''){                
                 item.classList.add('err');
-                disabledBtn()
+                disabledBtn();                
             }else{
                 item.classList.remove('err');
                 hasError = true;
             }
-        });
-        
+        });        
 
-        if (hasError){
-            e.preventDefault();
+        if (hasError){            
+            e.preventDefault();            
         }
+        
     });
 
     function disabledBtn(){
         btnElements.disabled = true;
     }
 
-    function enabledBtn(){
+    function enabledBtn(e){
         btnElements.disabled = false;
-        item.classList.remove('err');
+        e.target.classList.remove('err');
     }
 
-    formElements.forEach(el => el.addEventListener('input', enabledBtn));
+    formElements.forEach(el => el.addEventListener('focusin', enabledBtn));
+    // mainForm.addEventListener('focusin', function(e){        
+    //     if(e.target.classList.contains('.check')){
+    //         console.log(e)
+    //         e.target.classList.remove('err');
+    //         btnElements.disabled = false;
+    //     }
+    // })
         
 });
