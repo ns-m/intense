@@ -1,0 +1,13 @@
+html, body{
+    font-size: larger;
+    margin: 0;
+}
+
+.calculator{
+    margin: 30px;
+}
+
+.equals:disabled{
+    cursor: not-allowed;
+    color: #A44234;
+}
