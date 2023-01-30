@@ -10,6 +10,24 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="src/img/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="src/img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="src/img/favicon-16x16.png"
+    />
+    <link rel="manifest" href="src/img/site.webmanifest" />
     <style>
       .rounded-img {
         width: 60%;
@@ -21,9 +39,15 @@
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary bg-dark"
+      data-bs-theme="dark"
+    >
+      <!-- <nav class="navbar bg-dark" data-bs-theme="dark"> -->
       <div class="container">
-        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+        <a class="navbar-brand p-0" href="#"
+          ><img src="src/img/MyTravel.png" alt="logo" width="80"
+        /></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -41,7 +65,7 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Projects</a>
+              <a class="nav-link" href="projects.html">Projects</a>
             </li>
           </ul>
         </div>
