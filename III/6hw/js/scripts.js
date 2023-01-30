@@ -1,47 +1,56 @@
-window.addEventListener('load', function(){
+window.addEventListener("load", function () {
+  const formElements = document.querySelectorAll(".check");
+  const btnElements = document.querySelector(".btnSend");
+  const mainForm = document.querySelector(".form");
+  const validationObj = {
+    name: {
+      pattern: /^.{2,30}$/,
+      errorText: "from 2 to 32 simbols",
+    },
+    phone: {
+      pattern: /^\d{7,15}$/,
+      errorText: "only numbers, from 7 to 15",
+    },
+    email: {
+      pattern: /^.+@.+\..+$/,
+      errorText: "only right email",
+    },
+  };
 
-    const formElements = document.querySelectorAll('.check');
-    const btnElements = document.querySelector('.btnSend');
-    const mainForm = document.querySelector('.form');  
-     
-    
-    mainForm.addEventListener('submit', function(e){     
-        
-        const validationObj = {
-            'name': () => console.log(1),
-            // 'phone': console.log('2'),
-            // 'email': console.log('3')
-        } 
-        
-        let hasError = false;        
-        
-        formElements.forEach(function(item){
-                        
-            if(item.value === '' && item.name === 'name'){   
-                validationObj['name']           
-                item.classList.add('err');
-                disabledBtn();                
-            }else{
-                item.classList.remove('err');
-                hasError = true;
-            }
-        });        
+  mainForm.addEventListener("submit", function (e) {
+    let hasError = false;
 
-        if (hasError){            
-            e.preventDefault();            
-        }
-        
+    formElements.forEach(function (item) {
+      let rule = validationObj[item.dataset.rule];
+
+      if (rule !== undefined && !rule.pattern.test(item.value)) {
+        hasError = true;
+        item.classList.add("err");
+        showError(item, rule.errorText);
+        disabledBtn();
+      }
     });
 
-    function disabledBtn(){
-        btnElements.disabled = true;
+    if (hasError) {
+      e.preventDefault();
     }
+  });
 
-    function enabledBtn(e){
-        btnElements.disabled = false;
-        e.target.classList.remove('err');
-    }
+  function disabledBtn() {
+    btnElements.disabled = true;
+  }
 
-    formElements.forEach(el => el.addEventListener('focusin', enabledBtn));
-            
+  function enabledBtn(e) {
+    btnElements.disabled = false;
+    e.target.classList.remove("err");
+    showError(e.target, "");
+  }
+
+  formElements.forEach((el) => el.addEventListener("focusin", enabledBtn));
+
+  function showError(input, message) {
+    const box = input.closest(".form_input_box");
+    let msgBox = box.querySelector(".error-message");
+    msgBox.innerHTML = message;
+  }
 });

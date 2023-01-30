@@ -1,7 +1,13 @@
-html, body{
-	margin: 40px;
+html,
+body {
+  margin: 40px;
 }
 
-.err{
-	outline: 1px solid red;
+.err {
+  outline: 1px solid red;
+}
+
+.error-message {
+  color: brown;
+  font-size: 14px;
 }

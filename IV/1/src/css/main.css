@@ -1,0 +1,9 @@
+html,
+body {
+  font-size: larger;
+  margin: 0;
+}
+
+.sample {
+  margin: 20px;
+}
