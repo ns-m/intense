@@ -1,4 +1,6 @@
-window.addEventListener("load", function () {});
+window.addEventListener("load", function () {
+  console.log("test");
+});
 
 function delegate(box, selector, eventName, handler) {
   box.addEventListener(eventName, function (e) {
