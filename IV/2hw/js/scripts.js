@@ -55,13 +55,6 @@ function scrollToElem(elem) {
   let getRect = elem.getBoundingClientRect(),
     bodyRect = document.body.getBoundingClientRect(),
     top = getRect.top - bodyRect.top;
-
-  // if (getRect.top > 100) {
-  //   toTop.classList.add("btnVis");
-  // } else {
-  //   toTop.classList.remove("btnVis");
-  // }
-
   window.scrollTo({
     top,
     behavior: "smooth",

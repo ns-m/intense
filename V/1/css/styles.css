@@ -1,0 +1,86 @@
+html,
+body {
+  margin: 0;
+  background: #eee;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #14471e;
+  color: #c8d2d1;
+  height: 50px;
+  width: 100%;
+}
+
+.menu a {
+  color: inherit;
+  line-height: 50px;
+  font-size: 20px;
+  margin: 0 10px;
+  transition: color 0.4s;
+}
+
+.menu .menu__link-active {
+  color: #ee9b01;
+}
+
+.content {
+  margin-top: 70px;
+}
+
+/* .to-top {
+  color: rgb(16, 15, 15);
+  padding-top: 1.8em;
+  display: none; 
+  position: absolute;
+  border-color: rgb(16, 15, 15);
+  text-decoration: none;
+  transition: all 0.3s ease-out;
+}
+.to-top:before {
+  content: "▲";
+  font-size: 0.9em;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -0.7em;
+  border: solid 0.13em rgb(16, 15, 15);
+  border-radius: 10em;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1.3em;
+  border-color: inherit;
+  transition: transform 0.5s ease-in;
+}
+.to-top:hover {
+  color: rgb(16, 15, 15);
+  border-color: rgb(16, 15, 15);
+}
+.to-top:hover:before {
+  transform: rotate(360deg);
+} */
+
+.btnUp {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  line-height: 50px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  cursor: pointer;
+  /* display: none; */
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.btnUp-open {
+  /* display: block; */
+  opacity: 1;
+  pointer-events: all;
+}
