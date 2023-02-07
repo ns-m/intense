@@ -6,16 +6,28 @@ window.addEventListener("load", function () {
     const cl = answer.classList;
 
     if (cl.contains("open")) {
-      let animation = answer.animate([{ opacity: 1 }, { opacity: 0 }], {
-        dutation: 1000,
-      });
+      let animation = answer.animate(
+        [
+          { opacity: 1, transform: "translateX(0)" },
+          { opacity: 0, transform: "translateX(100px)" },
+        ],
+        {
+          dutation: 500,
+        }
+      );
 
       animation.addEventListener("finish", function () {
         cl.remove("open");
       });
     } else {
       cl.add("open");
-      answer.animate([{ opacity: 0 }, { opacity: 1 }], { dutation: 1000 });
+      answer.animate(
+        [
+          { opacity: 0, transform: "translateX(-100px)" },
+          { opacity: 1, transform: "translateX(0)" },
+        ],
+        { dutation: 500 }
+      );
     }
   });
 });
