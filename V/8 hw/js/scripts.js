@@ -7,10 +7,12 @@ window.addEventListener("load", function () {
     animToggleElem(
       answer,
       [
-        { opacity: 0, transform: "scale(0.5)" },
-        { opacity: 1, transform: "scale(1)" },
+        // { opacity: 0, transform: "scale(0.5)" },
+        // { opacity: 1, transform: "scale(1)" },
+        { height: 0 },
+        { height: answer.clientHeight + "px" },
       ],
-      500
+      50
     );
   });
 });
