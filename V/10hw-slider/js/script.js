@@ -51,16 +51,16 @@ window.addEventListener("load", function () {
   }
 });
 
-if (isNext) {
-  imgHide.classList.remove("showed");
-  imgHide.animate(animMoveToLeft, { duration: 500 });
+// if (isNext) {
+//   imgHide.classList.remove("showed");
+//   imgHide.animate(animMoveToLeft, { duration: 500 });
 
-  imgShow.classList.add("showed");
-  imgShow.animate(animMoveToRight, { duration: 500, direction: "reverse" });
-} else {
-  imgHide.classList.remove("showed");
-  imgHide.animate(animMoveToRight, { duration: 500 });
+//   imgShow.classList.add("showed");
+//   imgShow.animate(animMoveToRight, { duration: 500, direction: "reverse" });
+// } else {
+//   imgHide.classList.remove("showed");
+//   imgHide.animate(animMoveToRight, { duration: 500 });
 
-  imgShow.classList.add("showed");
-  imgShow.animate(animMoveToLeft, { duration: 500, direction: "reverse" });
-}
+//   imgShow.classList.add("showed");
+//   imgShow.animate(animMoveToLeft, { duration: 500, direction: "reverse" });
+// }
