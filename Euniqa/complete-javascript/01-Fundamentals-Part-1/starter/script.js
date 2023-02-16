@@ -35,3 +35,32 @@ if (averageScoreDolphins > averageScoreKoalas) {
 } else {
   console.log(`WHF? It's draw!`);
 }
+
+const scoreDolphinsB1 = [97, 112, 101];
+const scoreKoalasB1 = [109, 95, 123];
+
+let averageScoreDolphinsB1 =
+  scoreDolphinsB1.reduce((acc, item) => (acc += item)) / scoreDolphinsB1.length;
+
+let averageScoreKoalasB1 =
+  scoreKoalasB1.reduce((acc, item) => (acc += item)) / scoreKoalasB1.length;
+
+if (
+  averageScoreDolphinsB1 > averageScoreKoalasB1 &&
+  averageScoreDolphinsB1 > 100
+) {
+  console.log(
+    `Dolphins team (average Score ${averageScoreDolphinsB1}) is winner!`
+  );
+} else if (
+  averageScoreDolphinsB1 < averageScoreKoalasB1 &&
+  averageScoreKoalasB1 > 100
+) {
+  console.log(
+    `Koalas team (average Score ${averageScoreKoalasB1}) is winner! `
+  );
+} else {
+  console.log(
+    `WHF? It's draw! ${averageScoreDolphinsB1} ${averageScoreKoalasB1}`
+  );
+}
