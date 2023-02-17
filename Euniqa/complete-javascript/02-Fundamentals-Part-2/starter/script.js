@@ -33,3 +33,6 @@ if (hasDriversLicense && hasGoodVision) {
   console.log(`Someone else should drive!`);
 }
 */
+
+//Statements and Expressions
+//😊
