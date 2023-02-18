@@ -39,6 +39,8 @@ if (hasDriversLicense && hasGoodVision) {
 //The Conditional (Ternary) Operator😊
 const age = 23;
 
-const drink = age >= 18 ? "wine 🍷" : "water 💧";
+//const drink = age >= 18 ? "wine 🍷" : "water 💧";
 
-console.log(drink);
+//console.log(drink);
+
+console.log(`I like to drink ${age >= 18 ? "wine 🍷" : "water 💧"}`);
