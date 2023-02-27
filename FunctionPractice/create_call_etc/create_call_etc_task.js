@@ -24,9 +24,9 @@ function t3() {
     return greetingsArr[Math.floor(Math.random() * greetingsArr.length)];
   }
   function randomWord() {
-    return strArray[Math.floor(0 + Math.random() * strArray.length + 1 - 0)];
+    return strArray[Math.floor(Math.random() * strArray.length)];
   }
-  return `${greeting()} ${randomWord()}`;
+  return `${greeting()}, ${randomWord()}`;
 }
 
 document
@@ -35,3 +35,50 @@ document
     'click',
     () => (document.querySelector('.out-3').innerHTML = t3())
   );
+
+function t4() {
+  function greeting() {
+    return greetingsArr[Math.floor(Math.random() * greetingsArr.length)];
+  }
+  function randomWord() {
+    return strArray[Math.floor(Math.random() * strArray.length)];
+  }
+  return `${greeting()}, ${randomWord()}`;
+}
+
+function t4b() {
+  return t4();
+}
+
+document
+  .querySelector('.myButton2')
+  .addEventListener(
+    'click',
+    () => (document.querySelector('.out-4').innerHTML = t4b())
+  );
+
+function myEven() {
+  console.log('Number is even');
+}
+
+function myOdd() {
+  console.log('Number is odd');
+}
+
+function t5() {
+  let myInputNum = document.querySelector('.i-5').value;
+  if (myInputNum % 2 === 0) {
+    myEven();
+  } else {
+    myOdd();
+  }
+}
+
+function t6() {
+  document.querySelector('.out-5').innerHTML = getRandomInt();
+  document.querySelector('.out-5').innerHTML % 2 === 0
+    ? (document.querySelector('.out-6').innerHTML = 'Number is even')
+    : (document.querySelector('.out-6').innerHTML = 'Number is odd');
+}
+
+t6();
