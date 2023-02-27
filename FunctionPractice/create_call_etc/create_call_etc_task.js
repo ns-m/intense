@@ -82,3 +82,49 @@ function t6() {
 }
 
 t6();
+
+let z7 = 91;
+
+function t7() {
+  if (z7 <= 99) {
+    z7++;
+    return z7;
+  } else {
+    return 'No more 100!';
+  }
+}
+
+document
+  .querySelector('.myButton3')
+  .addEventListener(
+    'click',
+    () => (document.querySelector('.out-7').innerHTML = t7())
+  );
+
+document
+  .querySelector('.myButton4')
+  .addEventListener(
+    'click',
+    () =>
+      (document.querySelector('.option-select').value =
+        Math.floor(Math.random() * 5) + 1)
+  );
+
+const ar10 = [23, 56, 'a', true, 89, 2, 67, 'byte'];
+let ar10_res = [];
+
+function t10(dataArr) {
+  dataArr.forEach((element) => {
+    if (!isNaN(element)) {
+      ar10_res.push[element];
+    }
+  });
+  console.log(ar10_res);
+  function showArr() {
+    document.querySelector('.out-8').innerHTML = ar10_res;
+  }
+
+  return showArr();
+}
+
+t10(ar10);
