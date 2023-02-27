@@ -111,15 +111,15 @@ document
   );
 
 const ar10 = [23, 56, 'a', true, 89, 2, 67, 'byte'];
-let ar10_res = [];
 
 function t10(dataArr) {
+  let ar10_res = [];
   dataArr.forEach((element) => {
-    if (!isNaN(element)) {
-      ar10_res.push[element];
+    if (typeof element === 'number') {
+      ar10_res.push(element);
     }
   });
-  console.log(ar10_res);
+
   function showArr() {
     document.querySelector('.out-8').innerHTML = ar10_res;
   }
