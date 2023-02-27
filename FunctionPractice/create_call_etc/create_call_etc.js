@@ -22,17 +22,25 @@ const strArray =
     ' '
   );
 
+let myWidth = document.querySelector('.element').offsetWidth;
+
+function wordFromStrArray() {
+  return console.log(
+    strArray[Math.floor(minInt + Math.random() * maxInt + 1 - minInt)]
+  );
+}
+
 function randomeInt() {
   return console.log(Math.floor(minInt + Math.random() * maxInt + 1 - minInt));
 }
 
+function addWidth() {
+  myWidth++;
+  document.querySelector('.element').style.width = myWidth + 'px';
+}
+
 document.querySelector('.element').addEventListener('mousemove', randomeInt);
 
-document
-  .querySelector('.element')
-  .addEventListener(
-    'click',
-    console.log(
-      strArray[Math.floor(minInt + Math.random() * maxInt + 1 - minInt)]
-    )
-  );
+document.querySelector('.element').addEventListener('click', wordFromStrArray);
+
+document.querySelector('.element').addEventListener('mousemove', addWidth);
