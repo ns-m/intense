@@ -49,7 +49,8 @@ document.querySelector('.b-4').addEventListener('click', () => {
   }
 });
 
-console.group('start example log');
+////////
+console.group('start example log 1');
 const testSumArr = [
   [1, 2, 3],
   [4, 5, 5],
@@ -64,4 +65,39 @@ function sumTestArr(array) {
   return result;
 }
 console.log(sumTestArr(testSumArr));
+console.groupEnd();
+
+////////
+console.group('start example log 2');
+
+function sumArr(array) {
+  return array.reduce((acc, item) => (acc += item));
+}
+
+const testSumArr2 = [
+  [1, 2, 3],
+  [4, 5, 5],
+  [7, 1, 3],
+  [4, 5, 9],
+];
+
+const evenArr = testSumArr2.filter((item) => {
+  return sumArr(item) % 2 === 0;
+});
+
+console.log(evenArr);
+
+console.groupEnd();
+
+///////
+console.group('start example log 3');
+
+function returnSomeFunc() {
+  return sumArr;
+}
+
+let resulReturnSomeFunc = returnSomeFunc();
+
+console.log(resulReturnSomeFunc([10, 20, 30]));
+
 console.groupEnd();
