@@ -1,20 +1,78 @@
+function sendDataToSelector(elem, someFun) {
+  return (document.querySelector(elem).innerHTML = someFun);
+}
+
+// function eventForSendData(elemForEvent, someEventFunc) {
+//   document.querySelector(elemForEvent).addEventListener('click', () => {
+//     someEventFunc;
+//   });
+// }
+
 // Task 1
 // Напишите функцию t1, которая возвращает сумму переданных ей аргументов a и b.
 
-f;
+function unitIIIone(num1, num2) {
+  return num1 + num2;
+}
+
+//eventForSendData('.b-1', sendDataToSelector('.out-1', unitIIIone(10, 5)));
+
+document.querySelector('.b-1').addEventListener('click', () => {
+  sendDataToSelector('.out-1', unitIIIone(10, 55));
+});
 
 // Task 2.
 
 //Напишите функцию t2, которая принимает 2 аргумента и возвращает больший из них.
 
+function unitIIItwo(num1, num2) {
+  return num1 > num2 ? num1 : num2;
+}
+//eventForSendData('.b-2', sendDataToSelector('.out-2', unitIIItwo(10, 5)));
+document.querySelector('.b-2').addEventListener('click', () => {
+  sendDataToSelector('.out-2', unitIIItwo(10, 55));
+});
+
 // Task 3.
 // На странице есть checkbox .ch-3. Напишите функцию, которая возвращает его value если он выбран и false если не выбран.
+
+function unitIIIthree() {
+  return prompt('Input data', '');
+}
+
+document.querySelector('.b-3').addEventListener('click', () => {
+  if (document.querySelector('.ch-3').checked === true) {
+    sendDataToSelector('.out-3', unitIIIthree());
+  } else {
+    sendDataToSelector('.out-3', 'false');
+  }
+});
 
 // Task 4
 // На странице есть radiobutton .r-4. Напишите функцию, которая возвращет value выбранного radiobutton.
 
+document.querySelector('.b-4').addEventListener('click', () => {
+  document.querySelectorAll('.r-4').forEach((elem) => {
+    if (elem.checked === true) {
+      document.querySelector('.out-4').innerHTML = elem.value;
+    }
+  });
+});
+
 // Task 5
 // Напишите функцию t5, которая получает из s51 число, из s52 знак и из s53 число и возвращает результат математической операции над этими числами с этим знаком. Т.е. возвращает или сумму чисел, или произведение, или разность или деление.
+
+function unitIIIfive(num1, operator, num2) {
+  //return (num1 operator num2);
+}
+
+const num1Arr = document.querySelector('.s51');
+const operArr = document.querySelector('.s52');
+const num2Arr = document.querySelector('.s53');
+
+console.log(num1Arr);
+console.log(operArr[1].value);
+console.log(num2Arr);
 
 // Task 6
 // Напишите функцию, которая принимает три аргумента: num1, num2 - числа и sign - строку знак операции. sign может быть равен '+', '-', '/', '*'. В зависимости от знака функция должна возвращать результат выбранной операции над числами. Например передали числа 10 и 5 и знак '/'. Функция должна возвратить 2.
