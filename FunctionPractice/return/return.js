@@ -62,17 +62,21 @@ document.querySelector('.b-4').addEventListener('click', () => {
 // Task 5
 // Напишите функцию t5, которая получает из s51 число, из s52 знак и из s53 число и возвращает результат математической операции над этими числами с этим знаком. Т.е. возвращает или сумму чисел, или произведение, или разность или деление.
 
-function unitIIIfive(num1, operator, num2) {
-  //return (num1 operator num2);
-}
-
 const num1Arr = document.querySelector('.s51');
 const operArr = document.querySelector('.s52');
 const num2Arr = document.querySelector('.s53');
 
-console.log(num1Arr);
-console.log(operArr[1].value);
-console.log(num2Arr);
+//console.log(typeof num1Arr);
+
+function unitIIIfive(arrElemSelect) {
+  return Object.entries(arrElemSelect).entries;
+}
+
+document.querySelector('.b-5').addEventListener('click', () => {
+  console.log(unitIIIfive(num1Arr));
+  console.log(unitIIIfive(operArr));
+  console.log(unitIIIfive(num2Arr));
+});
 
 // Task 6
 // Напишите функцию, которая принимает три аргумента: num1, num2 - числа и sign - строку знак операции. sign может быть равен '+', '-', '/', '*'. В зависимости от знака функция должна возвращать результат выбранной операции над числами. Например передали числа 10 и 5 и знак '/'. Функция должна возвратить 2.
