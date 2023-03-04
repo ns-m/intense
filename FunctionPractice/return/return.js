@@ -66,16 +66,27 @@ const num1Arr = document.querySelector('.s51');
 const operArr = document.querySelector('.s52');
 const num2Arr = document.querySelector('.s53');
 
+const mathOperations = {
+  '+': (x, y) => x + y,
+  '-': (x, y) => x - y,
+  '*': (x, y) => x * y,
+  '/': (x, y) => x / y,
+};
+
 //console.log(typeof num1Arr);
 
 function unitIIIfive(arrElemSelect) {
-  return Object.entries(arrElemSelect).entries;
+  for (let index = 0; index < arrElemSelect.length; index++) {
+    if (arrElemSelect[index].selected === true) {
+      return arrElemSelect[index].value;
+    }
+  }
 }
 
 document.querySelector('.b-5').addEventListener('click', () => {
-  console.log(unitIIIfive(num1Arr));
-  console.log(unitIIIfive(operArr));
-  console.log(unitIIIfive(num2Arr));
+  document.querySelector('.out-5').innerHTML = mathOperations[
+    unitIIIfive(operArr)
+  ](unitIIIfive(num1Arr) * 1, unitIIIfive(num2Arr) * 1);
 });
 
 // Task 6
