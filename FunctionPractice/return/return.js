@@ -191,7 +191,7 @@ document.querySelector('.b-11').addEventListener('click', () => {
 // Task 13
 // Напишите функцию, t13, которая возвращает случайное целое число в заданном диапазоне min, max.
 
-function unitIIIthirteen(min = 0, max = 255) {
+function unitIIIthirteen(min = 10, max = 20) {
   min = prompt('Input min number', '') * 1;
   max = prompt('Input max number', '') * 1;
   return Math.floor(min + Math.random() * (max + 1 - min));
@@ -213,29 +213,99 @@ document.querySelector('.b-14').addEventListener('click', () => {
 // Task 15
 // Напишите функцию, которая получает строку как аргумент и возвращает строку очищенную от пробелов ( с начала и конца) или false если строка содержит только пробелы.
 
+function unitIIIfifteen(string) {
+  string = prompt('Input string', '');
+  if (string.trim() === '') {
+    return false;
+  } else {
+    return string.trim();
+  }
+}
+
+document.querySelector('.b-15').addEventListener('click', () => {
+  document.querySelector('.out-15').innerHTML = unitIIIfifteen();
+});
+
 // Task 16
 // Напишите функцию, которая получает строку как аргумент и возвращает строку приведенную к нижнему регистру.
 
 // Task 17
 // Напишите функцию, которая получает value выбранного option select.s-171 и возвращает его.
 
+document.querySelector('.b-17').addEventListener('click', () => {
+  const num1Arr = document.querySelector('.s-171');
+  const num2Arr = document.querySelector('.s-172');
+
+  document.querySelector('.out-17').innerHTML = `${unitIIIfive(num1Arr)} 
+  ${unitIIIfive(num2Arr)}`;
+});
+
 // Task 18
 // Напишите функцию, которая получает value из input.i-18 и возвращает его.
+
+function unitIIIeithtteen(elem) {
+  return document.querySelector(elem).value;
+}
+
+document.querySelector('.i-18').addEventListener('click', () => {
+  document.querySelector('.out-18').innerHTML = unitIIIeithtteen('.i-18');
+});
 
 // Task 19
 // Напишите функцию, которая получает value из input.i-19 и возвращает его.
 
+document.querySelector('.i-19').addEventListener('click', () => {
+  document.querySelector('.out-19').innerHTML = unitIIIeithtteen('.i-19');
+  document.querySelector('.out-19').style.background =
+    unitIIIeithtteen('.i-19') > 50 ? `red` : `orange`;
+});
+
 // Task 20
 // Напишите функцию, которая получает строку и возвращает "развернутую" строку.
+
+function unitIIItwenty(string) {
+  string = prompt('Input string:', '');
+  return string.split('').reverse().join('');
+}
+
+document.querySelector('.b-20').addEventListener('click', () => {
+  document.querySelector('.out-20').innerHTML = unitIIItwenty();
+});
 
 // Task 21
 // Напишите функцию, которая в зависимости от параметра even или odd возвращает случайное целое четное (even) или не четное (odd) число от 10 до 20.
 // Для генерации случайного числа используйте t13.
 
+function unitIIItwentyone(param) {
+  //param = prompt('Input parametr:', '');
+  let result = unitIIIthirteen();
+  if (param === 'even' && result % 2 === 0) {
+    return result;
+  } else if (param === 'even' && result % 2 !== 0) {
+    return (result += 1);
+  } else if (param === 'odd' && result % 2 !== 0) {
+    return result;
+  } else {
+    return (result -= 1);
+  }
+}
+
+document.querySelector('.b-21').addEventListener('click', () => {
+  document.querySelector('.out-21').innerHTML = unitIIItwentyone('odd');
+});
+
 // Task 22
 // Напишите функцию callback22, которая принимает параметр item и если он четный то возвращает true. Если все выполнено верно, то на выходе вы получите только массив четных элементов из массива ar22.
 
-const ar22 = [3, 4, 5, 6, 7, 8];
+const ar22 = [3, 4, 5, 6, 7, 8, 9, 10];
+
+function callback22(numArr) {
+  return numArr.filter((elem) => elem % 2 === 0);
+}
+
+document.querySelector('.b-22').addEventListener('click', () => {
+  document.querySelector('.out-22').innerHTML = callback22(ar22);
+});
 
 // Task 23
 // Напишите функцию callback23, которая принимает параметр item и возвращает его возведенным во вторую степень.
