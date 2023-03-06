@@ -62,17 +62,6 @@ document.querySelector('.b-4').addEventListener('click', () => {
 // Task 5
 // Напишите функцию t5, которая получает из s51 число, из s52 знак и из s53 число и возвращает результат математической операции над этими числами с этим знаком. Т.е. возвращает или сумму чисел, или произведение, или разность или деление.
 
-const num1Arr = document.querySelector('.s51');
-const operArr = document.querySelector('.s52');
-const num2Arr = document.querySelector('.s53');
-
-const mathOperations = {
-  '+': (x, y) => x + y,
-  '-': (x, y) => x - y,
-  '*': (x, y) => x * y,
-  '/': (x, y) => x / y,
-};
-
 //console.log(typeof num1Arr);
 
 function unitIIIfive(arrElemSelect) {
@@ -84,6 +73,17 @@ function unitIIIfive(arrElemSelect) {
 }
 
 document.querySelector('.b-5').addEventListener('click', () => {
+  const num1Arr = document.querySelector('.s51');
+  const operArr = document.querySelector('.s52');
+  const num2Arr = document.querySelector('.s53');
+
+  const mathOperations = {
+    '+': (x, y) => x + y,
+    '-': (x, y) => x - y,
+    '*': (x, y) => x * y,
+    '/': (x, y) => x / y,
+  };
+
   document.querySelector('.out-5').innerHTML = mathOperations[
     unitIIIfive(operArr)
   ](unitIIIfive(num1Arr) * 1, unitIIIfive(num2Arr) * 1);
@@ -92,20 +92,98 @@ document.querySelector('.b-5').addEventListener('click', () => {
 // Task 6
 // Напишите функцию, которая принимает три аргумента: num1, num2 - числа и sign - строку знак операции. sign может быть равен '+', '-', '/', '*'. В зависимости от знака функция должна возвращать результат выбранной операции над числами. Например передали числа 10 и 5 и знак '/'. Функция должна возвратить 2.
 
+function unitIIIsix(num1, num2, sign = ['+', '-', '/', '*']) {
+  if (sign === '+') {
+    return num1 + num2;
+  } else if (sign === '-') {
+    return num1 - num2;
+  } else if (sign === '/') {
+    return num1 / num2;
+  } else {
+    return num1 * num2;
+  }
+}
+
+document.querySelector('.b-6').addEventListener('click', () => {
+  document.querySelector('.out-6').innerHTML = unitIIIsix(5, 10, '/');
+});
+
 // Task 7
 // Напишите функцию, которая принимает аргумент и возвращает true если аргумент число и false во всех остальных случаях
+
+function unitIIIseven(params) {
+  params = prompt('Input data', '');
+  return isNaN(params) ? false : true;
+}
+
+document.querySelector('.b-7').addEventListener('click', () => {
+  document.querySelector('.out-7').innerHTML = unitIIIseven();
+});
 
 // Task 8
 // Напишите функцию, которая принимает число дробь (например 23.34) и параметр 'floor' или 'ceil' и возвращает число с соответствующим округлением ( либо floor либо ceil).
 
+function unitIIIeight(number, param) {
+  number = prompt('Input number', '');
+  param = prompt('Input param', '');
+  if (param === 'floor') {
+    return Math.floor(number);
+  } else if (param === 'ceil') {
+    return Math.ceil(number);
+  } else {
+    alert('You inputed wrong parametr!');
+  }
+}
+
+document.querySelector('.b-8').addEventListener('click', () => {
+  document.querySelector('.out-8').innerHTML = unitIIIeight();
+});
+
 // Task 9
 // Напишите функцию, которая принимает число и степень в которую нужно возвести число. Возвращает true если число возведенное в степень четное и false если не четное.
+
+function unitIIInine(number, degree) {
+  number = prompt('Input number', '');
+  degree = prompt('Input degree number', '');
+  if (number ** degree % 2 === 0) {
+    return `${number ** degree} even number = true`;
+  } else {
+    return `${number ** degree} even number = false`;
+  }
+}
+
+document.querySelector('.b-9').addEventListener('click', () => {
+  document.querySelector('.out-9').innerHTML = unitIIInine();
+});
 
 // Task 10
 // Напишите функцию, t10, которая возвращает количество переданных ей аргументов (число).
 
+function unitIIIten(...args) {
+  return args.length;
+}
+
+document.querySelector('.b-10').addEventListener('click', () => {
+  document.querySelector('.out-10').innerHTML = unitIIIten(
+    1,
+    2,
+    'a',
+    4,
+    5,
+    null
+  );
+});
+
 // Task 11
 // Напишите функцию, t11, которая возвращает cумму переданных ей аргументов (число). Используем arguments.
+
+function unitIIIeleven(...args) {
+  return args.reduce((acc, elem) => (acc += elem));
+}
+
+document.querySelector('.b-11').addEventListener('click', () => {
+  document.querySelector('.out-11').innerHTML = unitIIIeleven(1, 2, 30);
+});
 
 // Task 12
 // Напишите функцию, t12, которая возвращает cумму переданных ей аргументов (число). Используем rest.
@@ -113,8 +191,24 @@ document.querySelector('.b-5').addEventListener('click', () => {
 // Task 13
 // Напишите функцию, t13, которая возвращает случайное целое число в заданном диапазоне min, max.
 
+function unitIIIthirteen(min = 0, max = 255) {
+  min = prompt('Input min number', '') * 1;
+  max = prompt('Input max number', '') * 1;
+  return Math.floor(min + Math.random() * (max + 1 - min));
+}
+
+document.querySelector('.b-13').addEventListener('click', () => {
+  document.querySelector('.out-13').innerHTML = unitIIIthirteen();
+});
+
 // Task 14
 // Напишите функцию, которая возвращает строку в виде rgb(xxx,yyy,zzz) где xxx, yyy, zzz случайные целые числа в диапазонах от 0 до 255. В строке не должно быть пробелов. Для генерации случайных чисел используйте функцию t13.
+
+document.querySelector('.b-14').addEventListener('click', () => {
+  let result = `${unitIIIthirteen()},${unitIIIthirteen()},${unitIIIthirteen()}`;
+  document.querySelector('.out-14').innerHTML = result;
+  document.querySelector('.out-14').style.background = `rgb(${result})`;
+});
 
 // Task 15
 // Напишите функцию, которая получает строку как аргумент и возвращает строку очищенную от пробелов ( с начала и конца) или false если строка содержит только пробелы.
