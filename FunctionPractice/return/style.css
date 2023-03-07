@@ -26,3 +26,8 @@ div.section {
     border-top: 1px dashed black;
     border-bottom: 1px dashed black;
 }
+
+.input-string{
+    display: table;
+    
+}

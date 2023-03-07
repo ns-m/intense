@@ -243,21 +243,21 @@ document.querySelector('.b-17').addEventListener('click', () => {
 // Task 18
 // Напишите функцию, которая получает value из input.i-18 и возвращает его.
 
-function unitIIIeithtteen(elem) {
+function unitIIIeighteen(elem) {
   return document.querySelector(elem).value;
 }
 
 document.querySelector('.i-18').addEventListener('click', () => {
-  document.querySelector('.out-18').innerHTML = unitIIIeithtteen('.i-18');
+  document.querySelector('.out-18').innerHTML = unitIIIeighteen('.i-18');
 });
 
 // Task 19
 // Напишите функцию, которая получает value из input.i-19 и возвращает его.
 
 document.querySelector('.i-19').addEventListener('click', () => {
-  document.querySelector('.out-19').innerHTML = unitIIIeithtteen('.i-19');
+  document.querySelector('.out-19').innerHTML = unitIIIeighteen('.i-19');
   document.querySelector('.out-19').style.background =
-    unitIIIeithtteen('.i-19') > 50 ? `red` : `orange`;
+    unitIIIeighteen('.i-19') > 50 ? `red` : `orange`;
 });
 
 // Task 20
@@ -344,7 +344,7 @@ document.querySelector('.b-25').addEventListener('click', () => {
 // Напишите функцию которая получает из input.i-26 имя пользователя и если это не пустая строка - то выводит его в out-26 в нижнем регистре. Если строка пустая - то выходит из функции.
 
 function unitIIItwentysix(item) {
-  item = unitIIIeithtteen('.i-26');
+  item = unitIIIeighteen('.i-26');
   if (item !== '') {
     return item.toLowerCase();
   }
@@ -365,11 +365,64 @@ const obj27 = {
   m: 'w',
 };
 
+function unitIIItwentyseven(object, item) {
+  item = unitIIIeighteen('.i-27');
+  object = obj27;
+  let result = Object.keys(object).find((key) => object[key] === item);
+  if (result !== undefined) return result;
+  return false;
+}
+
+document.querySelector('.b-27').addEventListener('click', () => {
+  document.querySelector('.out-27').innerHTML = unitIIItwentyseven();
+});
+
 // Task 28
 // Напишите функцию которая принимает два аргумента - строку и подстроку и если подстрока есть в строке - возвращает true, если нет false.
+
+function unitIIItwentyeight(stringData, subStrData) {
+  stringData =
+    'Laboris laboris non commodo sint id pariatur eu irure velit. Veniam velit incididunt velit adipisicing enim ullamco amet. Proident laboris anim consectetur culpa adipisicing.';
+  subStrData = unitIIIeighteen('.i-28');
+
+  let result = stringData.indexOf(subStrData);
+  if (result !== -1) {
+    return true;
+  }
+  return false;
+}
+
+document.querySelector('.b-28').addEventListener('click', () => {
+  document.querySelector('.out-28').innerHTML = unitIIItwentyeight();
+});
 
 // Task 29
 // Напишите функцию, которая получает в качестве аргументов строки и возвращает большую строку (прямым сравнением).
 
+const strData = document.querySelectorAll('.i-29');
+
+function unitIIItwentynine(arrStr) {
+  const resultObj = {};
+  arrStr.forEach((elem) => (resultObj[elem.value.length] = elem.value));
+  return resultObj[Object.keys(resultObj)[Object.keys(resultObj).length - 1]];
+}
+
+document.querySelector('.b-29').addEventListener('click', () => {
+  document.querySelector('.out-29').innerHTML = unitIIItwentynine(strData);
+});
+
 // Task 30
 // Напишите функцию t30, которая возвращает функцию t31
+
+function unitIIIthirty() {
+  return unitIIIthirtyone();
+}
+
+function unitIIIthirtyone() {
+  const date = new Date();
+  return date.toLocaleDateString();
+}
+
+document.querySelector('.b-30').addEventListener('click', () => {
+  document.querySelector('.out-30').innerHTML = unitIIIthirty();
+});
