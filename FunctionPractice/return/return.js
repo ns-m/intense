@@ -312,6 +312,14 @@ document.querySelector('.b-22').addEventListener('click', () => {
 
 const ar23 = [3, 4, 5, 6, 7, 8];
 
+function callback23(arr) {
+  return arr.map((elem) => (elem **= 2));
+}
+
+document.querySelector('.b-23').addEventListener('click', () => {
+  document.querySelector('.out-23').innerHTML = callback23(ar23);
+});
+
 // Task 24
 // Напишите функцию callback24, которая принимает параметр item и возвращает его возведенным во вторую степень.
 
@@ -320,8 +328,32 @@ const ar24 = [3, 4, 5, 6, 7, 8];
 // Task 25
 // Напишите функцию которая принимает массив как аргумент и проверяет что в нем одни числа. Возвращает true если это так и false в противном.
 
+const ar25 = [3, 4, 5, 's', 6, 7, 8];
+
+function callback25(arr) {
+  return arr.every((item) => {
+    return typeof item === 'number';
+  });
+}
+
+document.querySelector('.b-25').addEventListener('click', () => {
+  document.querySelector('.out-25').innerHTML = callback25(ar25);
+});
+
 // Task 26
 // Напишите функцию которая получает из input.i-26 имя пользователя и если это не пустая строка - то выводит его в out-26 в нижнем регистре. Если строка пустая - то выходит из функции.
+
+function unitIIItwentysix(item) {
+  item = unitIIIeithtteen('.i-26');
+  if (item !== '') {
+    return item.toLowerCase();
+  }
+  return '';
+}
+
+document.querySelector('.b-26').addEventListener('click', () => {
+  document.querySelector('.out-26').innerHTML = unitIIItwentysix();
+});
 
 // Task 27
 // Напишите функцию которая получает из input.i-27 значение как аргумент и проверяет его наличие в объекте obj27. Если находит совпадение - возвращает ключ. Если не находит - false.
