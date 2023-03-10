@@ -24,4 +24,26 @@ function testFun2() {
 
 testFun2();
 
-testFun3(array, someFunc, elemHTML);
+function testFun3(someArray, someFunc, someElemHTML) {
+  someArray[1] = someArray[1] * 2;
+  someFunc(someArray, someElemHTML);
+}
+
+testFun3(testNumArr, showArr, out3);
+
+function otherShowArr(someArr, someElem) {
+  someElem.innerHTML = someArr.join('-|-');
+}
+
+testFun3(testNumArr, otherShowArr, out4);
+
+//example classic callback
+
+function squad(item) {
+  return item ** 2;
+}
+
+const otherArrVar = testNumArr.map(squad);
+
+//out5.innerHTML = otherArrVar;
+showArr(otherArrVar, out5);
