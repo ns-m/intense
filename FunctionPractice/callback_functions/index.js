@@ -8,6 +8,8 @@ const out6 = document.querySelector(".out-6");
 const out7 = document.querySelector(".out-7");
 const out8 = document.querySelector(".out-8");
 const out9 = document.querySelector(".out-9");
+const out10 = document.querySelector(".out-10");
+const url = "https://jsonplaceholder.typicode.com/todos/1";
 
 function testFun1() {
   testNumArr[1] = testNumArr[1] * 2;
@@ -77,8 +79,64 @@ async function loaderPageData(callbackFun) {
 function getAjax(elem, params) {
   elem.innerHTML += `Sent request ${"<br>"}`;
   elem.innerHTML += `Got request ${"<br>"}`;
+  elem.innerHTML += `--------------------`;
   //let result = params;
+  console.group("1");
   console.log(params);
 }
 
 loaderPageData(getAjax);
+
+function otherLoaderPageData(callbackFun) {
+  const elem = out8;
+  fetch("https://jsonplaceholder.typicode.com/todos/1")
+    .then((response) => response.json())
+    .then((json) => callbackFun(elem, json));
+}
+
+otherLoaderPageData(getAjax);
+
+//callback`s hell
+
+function threeLoaderPageData() {
+  const elem = out9;
+  fetch("https://jsonplaceholder.typicode.com/todos/1")
+    .then((response) => response.json())
+    .then((json) => {
+      elem.innerHTML += `Sent request ${"<br>"}`;
+      elem.innerHTML += `Got request ${"<br>"}`;
+      console.log(json);
+      fetch("https://jsonplaceholder.typicode.com/todos/1" + json.userId)
+        .then((response) => response.json())
+        .then((json) => {
+          elem.innerHTML += `--------------------${"<br>"}`;
+          elem.innerHTML += `Sent request ${"<br>"}`;
+          elem.innerHTML += `Got request ${"<br>"}`;
+          console.log(json);
+        });
+    });
+}
+
+threeLoaderPageData();
+
+function fourLoaderPageData(url, callbackFun) {
+  const elem = out10;
+  fetch(url)
+    .then((response) => response.json())
+    .then((json) => callbackFun(elem, json));
+}
+
+function twoGetAjax(elem, params) {
+  elem.innerHTML += `Sent request ${"<br>"}`;
+  elem.innerHTML += `Got request ${"<br>"}`;
+  elem.innerHTML += `--------------------`;
+  console.group("2");
+  console.log(params);
+  fourLoaderPageData(url + params.userId, showUserData);
+}
+
+function showUserData(params) {
+  console.log(params);
+}
+
+fourLoaderPageData(url, twoGetAjax);
