@@ -57,30 +57,46 @@ document.querySelector('.out-4').innerHTML = `${ar3.filter(
 
 const ar5 = ['GaLaxY', 'InFILtratoR', 'DaTaPad', 'APeX hQ'];
 let res5 = [];
-// let callBack5 =
 
-// ar5.forEach(callBack5);
+function callBack5(arr, otherArr) {
+  arr.forEach((element) => {
+    otherArr.push(element.toLowerCase());
+  });
+  return otherArr;
+}
 
-console.log(res5);
+//ar5.forEach(callBack5);
+document.querySelector('.out-5').innerHTML = `${callBack5(ar5, res5)}`;
+
+//console.log(res5);
 
 // Task 6
 // Допишите анонимную стрелочную функцию внутри forEach такую, что принимает элементы массива из forEach и пушит их в res6 приведенные к toLowerCase().
 
 let res6 = [];
-// ar5.forEach(); // сюда в скобки дописываете стрелочную функцию
+ar5.forEach((elem) => {
+  res6.push(elem.toLowerCase());
+}); // сюда в скобки дописываете стрелочную функцию
 
-console.log(res6);
+//console.log(res6);
+document.querySelector('.out-6').innerHTML = res6;
 
 // Task 7
 // Напишите функцию callBack7 такую, что принимает элементы массива ar7 и возвращет true если они больше 10.
 
 const ar7 = [5, 7, 10, 20, 30, 60];
 let res7;
-// let callBack7 =
 
-// res7 = ar7.every(callBack7);
+function callBack7(elem) {
+  return elem > 10;
+}
 
-console.log(res7);
+res7 = ar7.every(callBack7);
+
+//console.log(callBack7(ar7));
+document.querySelector(
+  '.out-7'
+).innerHTML = `${ar7} All elements bigger than '10' = ${res7}`;
 
 // Task 8
 // Допишите анонимную стрелочную функцию внутри every такую, что принимает элементы массива ar7 из every и возвращет true если они больше 10.
