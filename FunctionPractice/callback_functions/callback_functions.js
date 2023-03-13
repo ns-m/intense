@@ -7,7 +7,7 @@ function callBack1(item) {
   return item ** 3;
 }
 
-document.querySelector(".out-1").innerHTML = ar1.map(callBack1);
+document.querySelector('.out-1').innerHTML = ar1.map(callBack1);
 
 //console.log(ar1.map(callBack1));
 
@@ -17,33 +17,45 @@ document.querySelector(".out-1").innerHTML = ar1.map(callBack1);
 //let res2;
 //res2 = ar1.map((elem) => elem ** 3); // сюда в скобки дописываете стрелочную функцию
 const ar2 = [2, 3, 9];
-document.querySelector(".out-2").innerHTML = ar2.map((elem) => elem ** 3);
+document.querySelector('.out-2').innerHTML = ar2.map((elem) => elem ** 3);
 //console.log(res2);
 
 // Task 3.
 // Допишите функцию callBack3 такую, что принимает элементы массива из filter и возвращет true если это число.
 
-const ar3 = [4, "5", 6];
+const ar3 = [4, '5', 6, 7, 9, '10'];
 //let res3;
 // let callBack3 =
 
-// res3 = ar3.filter(callBack3);
-document.querySelector(".out-3").innerHTML = ar3.filter((elem) =>
-  typeof elem === "number" ? Boolean(elem) : ""
-);
+function callBack3(elem) {
+  return typeof elem === 'number';
+}
+
+function res3(someFunc) {
+  for (let index = 0; index < ar3.filter(someFunc).length; index++) {
+    document.querySelector('.out-3').innerHTML += `${true} `;
+  }
+}
+
+res3(callBack3);
+
+//document.querySelector('.out-3').innerHTML = res3;
 //console.log(res3);
 
 // Task 4
 // Допишите анонимную стрелочную функцию внутри filter такую, что принимает элементы массива из filter и возвращает true если это число.
-let res4;
-// res4 = ar3.filter(); // сюда в скобки дописываете стрелочную функцию
+// let res4;
+// res4 = ar3.filter((elem) => typeof elem === 'number'); // сюда в скобки дописываете стрелочную функцию
 
-console.log(res4);
+//console.log(res4);
+document.querySelector('.out-4').innerHTML = `${ar3.filter(
+  (elem) => typeof elem === 'number'
+)}`;
 
 // Task 5
 // Напишите функцию callBack5 такую, что принимает элементы массива и пушит их в res5 приведенные к toLowerCase().
 
-const ar5 = ["GaLaxY", "InFILtratoR", "DaTaPad", "APeX hQ"];
+const ar5 = ['GaLaxY', 'InFILtratoR', 'DaTaPad', 'APeX hQ'];
 let res5 = [];
 // let callBack5 =
 
