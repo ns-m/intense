@@ -85,13 +85,13 @@ document.querySelector('.out-6').innerHTML = res6;
 // Напишите функцию callBack7 такую, что принимает элементы массива ar7 и возвращет true если они больше 10.
 
 const ar7 = [5, 7, 10, 20, 30, 60];
-let res7;
+// let res7;
 
 function callBack7(elem) {
   return elem > 10;
 }
 
-res7 = ar7.every(callBack7);
+let res7 = ar7.every(callBack7);
 
 //console.log(callBack7(ar7));
 document.querySelector(
@@ -101,26 +101,37 @@ document.querySelector(
 // Task 8
 // Допишите анонимную стрелочную функцию внутри every такую, что принимает элементы массива ar7 из every и возвращет true если они больше 10.
 
-let res8;
-// res8 = ar7.every();// сюда в скобки дописываете стрелочную функцию
+//let res8;
+const ar8 = [15, 17, 100, 20, 30, 60];
+let res8 = ar8.every((elem) => elem > 10); // сюда в скобки дописываете стрелочную функцию
 
-console.log(res8);
+//console.log(res8);
+
+document.querySelector(
+  '.out-8'
+).innerHTML = `${ar8} All elements bigger than '10' = ${res8}`;
 
 // Task 9
 // Напишите функцию callBack9 такую, что принимает элементы массива ar9 и возвращет true если тип данных элемента boolean.
 
 const ar9 = [5, 7, false, 10, 20, 30, 60];
-let res9;
+// let res9;
 // let callBack9 =
 
-// res9 = ar9.some(callBack9);
+let res9 = ar9.some(callBack9);
 
-console.log(res9);
+function callBack9(elem) {
+  return typeof elem === 'boolean';
+}
+
+//console.log(res9);
+document.querySelector('.out-9').innerHTML = res9;
 
 // Task 10
 // Допишите анонимную стрелочную функцию внутри some такую, что принимает элементы массива ar9 из some и возвращет true если тип данных элемента boolean.
 
-let res10;
-// res10 = ar9.some();// сюда в скобки дописываете стрелочную функцию
+//let res10;
+let res10 = ar9.some((elem) => typeof elem === 'boolean'); // сюда в скобки дописываете стрелочную функцию
 
-console.log(res10);
+//console.log(res10);
+document.querySelector('.out-10').innerHTML = res10;
