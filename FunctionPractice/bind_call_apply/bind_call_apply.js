@@ -35,22 +35,28 @@ document.querySelector('.b-4').addEventListener('click', () => {
 // Task 5
 // Напишите функцию t5, проверяет что у элемента на котором она была вызвана свойство textContent не равно undefined. Возвращает true или false
 
-function t5() {
-  return typeof this.textContent;
+function t5(elem) {
+  return typeof (this.textContent = elem) === 'undefined' ? false : true;
 }
 
-console.log(t5.call(document.querySelector('.out-5')));
+console.log(t5.call(document.querySelector('.out-5'), 'out-5'));
 console.log(t5.call(document.querySelector('.i-5')));
 
 // Task 6
 //Запустите функцию t1, с контекстом out-6 с помощью apply. Функция должна запускаться при загрузке страницы.
 
 // тут прописываете запуск
+t1.apply(document.querySelector('.out-6'));
 
 // Task 7
 // Запустите функцию max с аргументами 5, 8 и контекстом out-7. Функция должна запускаться при загрузке страницы. Используем apply.
 
-// document.querySelector('.b-7').addEventListener( дописываете здесь
+document
+  .querySelector('.b-7')
+  .addEventListener(
+    'click',
+    max.apply(document.querySelector('.out-7'), [15, 8])
+  );
 
 // Task 8
 // Метод Math.max - позволяет находить максимум из любого количества переданных в него аргументов. Наприме, он сработает и так Math.max(22,33,1,2,33,44,55,1,100,45) и так Math.max(33,1,2) (проверьте самостоятельно). Минус метода - его тяжело использовать если мы не знаем количество передаваемых в него аргументов. Давайте напишем следующий код (см. код). Как видите, теперь не важно сколько элементов в массиве, и мы всегда сможем найти максимум. Обратите внимание, в качестве контекста мы передали null.
@@ -63,13 +69,15 @@ out8.textContent = Math.max.apply(null, ar8);
 // Task 9
 // По нажатию на кнопку b-9 запускается анонимная функция, которая через apply передает функции t9 контекст out-9 и массив ar9 элементов. Функция t9 должна вывести максимальный элемент массива.
 
-let ar9 = [66, 55, 33, 77, 22, 81, 15];
+let ar9 = [66, 120, 55, 33, 77, 22, 81, 15, 105];
 
 function t9(...arr) {
   this.textContent = Math.max.apply(null, arr);
 }
 
-// document.querySelector('.b-9').addEventListener( дописываете здесь
+document.querySelector('.b-9').addEventListener('click', () => {
+  t9.apply(document.querySelector('.out-9'), ar9);
+});
 
 // Task 10
 // Допишите анонимную стрелочную функцию внутри some такую, что принимает элементы массива ar9 из some и возвращет true если тип данных элемента boolean.
