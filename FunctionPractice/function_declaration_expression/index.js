@@ -1,3 +1,5 @@
+//'use strict';
+
 //function declaration
 let count = 0;
 f1();
@@ -7,7 +9,11 @@ function f1() {
 }
 f1();
 
-f2();
+try {
+  f2();
+} catch (error) {
+  console.log('f2 error');
+}
 
 if (true) {
   function f2() {
@@ -22,3 +28,26 @@ if (true) {
 }
 
 f2();
+
+//function expression
+
+const f3 = function () {
+  console.log(`run function f3 ${count}`);
+  count++;
+  console.log(this.name);
+  console.log(f3.name);
+};
+
+f3();
+
+const f4 = function exampleF4() {
+  console.log(`run function exampleF4 ${count}`);
+  console.log(this.name);
+  console.log(f4.name);
+  console.log(exampleF4.name);
+  count++;
+};
+
+//exampleF4(); //exampleF4 is not defined
+
+f4();
