@@ -1,1 +1,1 @@
-// Pure функции
+// Pure functions
