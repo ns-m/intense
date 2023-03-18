@@ -16,16 +16,52 @@ document.querySelector('.b-1').addEventListener('click', function () {
 // Task 2
 // Напишите pure функцию t2, которая принимает два аргумента и выводит в .out-2 больше число. Используйте Math.max. Функция запускается по кнопке .b-2.
 
-function t2(num1, num2) {}
+function t2(num1, num2) {
+  return Math.max(num1, num2);
+}
+
+document.querySelector('.b-2').addEventListener('click', function () {
+  document.querySelector('.out-2').innerHTML = `${t2(12, 4)}`;
+});
 
 // Task 3.
 // Напишите pure функцию t3 ( принимает 3 аргумента), которая делит число a на b и результат выводит в out-3. Если b равно нулю, то в out-3 выводится аргумент c. Функция запускается по кнопке .b-3.
 
+function t3(num1, num2, num3) {
+  if (num2 === 0) return num3;
+  else return num1 / num2;
+}
+
+document.querySelector('.b-3').addEventListener('click', function () {
+  document.querySelector('.out-3').innerHTML = `${t3(16, 0, 25)}`;
+});
+
 // Task 4
 // Давайте напишем pure функцию t4, которая выводит переданный ей массив (как аргумент arr) в блок (переданный как аргумент block) через пробел. Функция запускается по кнопке .b-4.
 
+function t4(arr, block) {
+  document.querySelector(block).innerHTML = '';
+  arr.forEach((element) => {
+    document.querySelector(block).innerHTML += `${element} `;
+  });
+}
+
+const someArr = [1, 2, 3, 'a', 'b', 'c', 7, null, undefined];
+
+document.querySelector('.b-4').addEventListener('click', function () {
+  t4(someArr, '.out-4');
+});
+
 // Task 5
 // Давайте напишем pure функцию t5, которая проверяет наличие элемента класс которой передан ей как аргумент (например '.out-5') на странице и возвращает true или false. Функция запускается по кнопке .b-5.
+
+function t5(elem) {
+  return document.querySelector(elem) !== null ? true : false;
+}
+
+document.querySelector('.b-5').addEventListener('click', function () {
+  document.querySelector('.out-5').innerHTML = t5('.out-125');
+});
 
 // Task 6
 // Давайте напишем pure функцию t6, которая получает массив и возвращает его развернутым на 180 градусов ( чистый аналог reverse ). Функция запускается по кнопке .b-6. Для проверки - выводите результат на страницу, через пробел.
