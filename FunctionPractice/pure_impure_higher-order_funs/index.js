@@ -83,3 +83,77 @@ function sortArr(item) {
 }
 
 console.log(resultArr);
+
+const someUser1 = {
+  userFullName: 'Bruce Lee',
+  userAge: 51,
+  password: 'qwerty123',
+  sex: 'male',
+  agreeToTerm: true,
+};
+
+const someUser2 = {
+  userFullName: 'John Do',
+  userAge: 17,
+  password: '12345',
+  sex: 'male',
+  agreeToTerm: true,
+};
+
+const someUser3 = {
+  userFullName: 'Will Smith',
+  userAge: 37,
+  password: 'q12345we',
+  sex: 'male',
+  agreeToTerm: false,
+};
+
+function checkAge(user) {
+  return user.userAge >= 18;
+}
+
+// console.log(checkAge(someUser1));
+// console.log(checkAge(someUser2));
+
+function checkPassword(user) {
+  return user.password.length > 8;
+}
+
+function checkTerm(user) {
+  return user.agreeToTerm === true;
+}
+
+function validateUser(obj, ...args) {
+  for (let i = 0; i < args.length; i++) {
+    if (args[i](obj)) {
+      return console.log(`Validation user ${obj.userFullName}. Result - true`);
+    }
+    return console.log(`Validation user ${obj.userFullName}. Result - false`);
+  }
+}
+
+validateUser(someUser1, checkAge, checkPassword, checkTerm);
+validateUser(someUser2, checkAge, checkPassword, checkTerm);
+
+console.log('************************');
+
+function createValidator(...args) {
+  return function (obj) {
+    for (let i = 0; i < args.length; i++) {
+      if (args[i](obj)) {
+        return console.log(
+          `Validation user ${obj.userFullName}. Result - true`
+        );
+      }
+      return console.log(`Validation user ${obj.userFullName}. Result - false`);
+    }
+  };
+}
+
+const validate1 = createValidator(checkAge, checkPassword, checkTerm);
+const validate2 = createValidator(checkAge, checkPassword, checkTerm);
+const validate3 = createValidator(checkAge, checkPassword);
+
+validate1(someUser1);
+validate2(someUser2);
+validate2(someUser3);
