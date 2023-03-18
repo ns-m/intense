@@ -5,6 +5,17 @@ function squad(num) {
 
 //Not Pure functions
 
-function squad2(num) {
-  document.querySelector('.out-1').innerHTML = num ** 2;
+function notPureFunc(num) {
+  //document.querySelector('.out-1').innerHTML = num ** 2;
+  document.querySelector('.out-1').innerHTML = squad(num);
+}
+
+let count = 0;
+
+function notPureFunc2() {
+  return count++;
+}
+
+function notPureFunc3() {
+  alert('not Pure Func');
 }
